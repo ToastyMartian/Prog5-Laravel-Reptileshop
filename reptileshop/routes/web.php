@@ -17,3 +17,5 @@ Route::get('/', 'HomeController@show')->name('home');
 Route::get('/reptiles', 'ReptileController@show')->name('reptiles');
 Route::get('/amphibians', 'AmphibianController@show')->name('amphibians');
 Route::get('/supplies', 'SuppliesController@show')->name('supplies');
+Route::get('/about', 'AboutController@show')->name('about');
+Route::get('/login', 'LoginController@show')->name('login');
