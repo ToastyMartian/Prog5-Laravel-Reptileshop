@@ -19,4 +19,8 @@ Route::get('/reptiles/snakes', 'SnakesItemsController@index')->name('reptiles.sn
 Route::get('/amphibians', 'AmphibianController@show')->name('amphibians');
 Route::get('/supplies', 'SuppliesController@show')->name('supplies');
 Route::get('/about', 'AboutController@show')->name('about');
-Route::get('/login', 'LoginController@show')->name('login');
+//Route::get('/login', 'LoginController@show')->name('login');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
