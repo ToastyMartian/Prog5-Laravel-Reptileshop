@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class SuppliesController extends HomeController
 {
     public function show() {
-        return view('supplies');
+        return view('supplies.supplies');
     }
 }

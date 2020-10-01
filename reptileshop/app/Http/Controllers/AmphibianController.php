@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class AmphibianController extends HomeController
 {
     public function show() {
-        return view('amphibians');
+        return view('amphibians.amphibians');
     }
 }
