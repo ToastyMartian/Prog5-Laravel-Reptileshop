@@ -62,7 +62,7 @@
                         Log in
                     </a>
 
-                    <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
+                    <a href="{{route('register')}}" class="ml-1 underline">
                         Registeer
                     </a>
                 </div>
