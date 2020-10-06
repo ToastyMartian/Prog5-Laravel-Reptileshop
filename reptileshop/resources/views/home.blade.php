@@ -1,32 +1,33 @@
 @extends ('layouts.layout')
 
 @section('content')
+    <div class="card bg-dark text-white">
+        <img src="{{asset('images/reptile.jpg')}}" class="card-img" alt="reptile">
+        <div class="card-img-overlay">
+            <h5 class="card-title"><a href="{{route('reptiles')}}" class="text-white text-decoration-none">Reptielen</a></h5>
+            <p class="card-text">Shop naar allerlei verschillende reptielen, zoals slangen, hagedissen, schildpadden, en krokodilachtigen!<br>
+                Ook kunt u met uw eigen fok bedrijf een reptiel via onze website verkopen.<br>
+                Indien u een reptiel wilt aanschaffen, vragen wij u eerst een <a href="#" class="btn btn-primary btn-dark text-muted">toetsing</a> af te leggen.<br>
+                Dit doen wij om te verifieren dat de koper werkelijk goed voor het dier kan zorgen.<br>
+                Uiteraard kunt u altijd gewoon het aanbod aan reptielen bekijken.</p>
+            <a href="#" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk reptielen te koop</small></a>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <img src="{{asset('images/amphibian.jpg')}}" class="card-img" alt="amphibian">
+        <div class="card-img-overlay">
+            <h5 class="card-title"><a href="{{route('amphibians')}}" class="text-white text-decoration-none">Amfibieen</a></h5>
+            <p class="card-text">Bekijk ook de verschillende amfibieen die wij op onze website beschikbaar hebben, zoals kikkers, padden, en salamanders.<br>
+                Ook deze kunnen als fok bedrijf verkocht worden.<br>
+                Indien u een amfibie wilt aanschaffen, vragen wij u eerst een <a href="#" class="btn btn-primary btn-dark text-muted">toetsing</a> af te leggen.<br>
+                Dit doen wij om te verifieren dat de koper werkelijk goed voor het dier kan zorgen.<br>
+                Uiteraard kunt u altijd gewoon het aanbod aan amfibieen bekijken.</p>
+            <a href="#" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk amfibieen te koop</small></a>
+        </div>
+    </div>
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
             <div class="grid grid-cols-1 md:grid-cols-2">
-                <div class="p-6">
-                    <div class="flex items-center">
-                        <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('reptiles')}}" class="underline text-gray-900 dark:text-white">Reptielen</a></div>
-                    </div>
-
-                    <div class="ml-12">
-                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                            Shop naar allerlei verschillende reptielen, zoals slangen, hagedissen, schildpadden, en krokodilachtigen! Ook kan je met je eigen fok bedrijf een reptiel verkopen.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                    <div class="flex items-center">
-                        <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('amphibians')}}" class="underline text-gray-900 dark:text-white">Amfibieen</a></div>
-                    </div>
-
-                    <div class="ml-12">
-                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                            Bekijk de verschillende amfibieen die wij op onze website beschikbaar hebben, zoals kikkers, padden, salamanders, en wormsalamanders. Ook deze kunnen als fok bedrijf verkocht worden.
-                        </div>
-                    </div>
-                </div>
 
                 <div class="p-6 border-t border-gray-200 dark:border-gray-700">
                     <div class="flex items-center">

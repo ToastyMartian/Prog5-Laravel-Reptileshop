@@ -20,8 +20,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{route('reptiles.snakes')}}">Slangen</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Hagedissen</a>
+                        <a class="dropdown-item" href="#">Schildpadden</a>
+                        <a class="dropdown-item" href="#">Krokodilachtigen</a>
                         <a class="dropdown-item" href="{{route('reptiles')}}">Zie alle reptielen</a>
                     </div>
                 </li>
@@ -30,9 +31,9 @@
                         Amfibieen
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Kikkers</a>
+                        <a class="dropdown-item" href="#">Padden</a>
+                        <a class="dropdown-item" href="#">Salamanders</a>
                         <a class="dropdown-item" href="{{route('amphibians')}}">Zie alle amfibieen</a>
                     </div>
                 </li>
@@ -41,9 +42,10 @@
                         Benodigdheden
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Verblijven</a>
+                        <a class="dropdown-item" href="#">Voer</a>
+                        <a class="dropdown-item" href="#">Substraat</a>
+                        <a class="dropdown-item" href="#">Accessoires</a>
                         <a class="dropdown-item" href="{{route('supplies')}}">Zie alle benodigdheden</a>
                     </div>
                 </li>
