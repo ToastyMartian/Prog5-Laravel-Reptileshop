@@ -34,16 +34,5 @@
             <a href="#" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk salamanders te koop</small></a>
         </div>
     </div>
-    <div class="card bg-dark text-white">
-        <img src="{{asset('images/toad.jpg')}}" class="card-img" alt="newt">
-        <div class="card-img-overlay">
-            <h5 class="card-title"><a href="#" class="text-white text-decoration-none">Padden</a></h5>
-            <p class="card-text">Padden worden vaak verward met kikkers.<br>
-                Echter zijn deze vrij anders dan kikkers, en vaak ook minder populair als huisdier.<br>
-                Padden zijn vaak een stuk groter en hebben een bruinachtige kleur in plaats van de felle kleuren bij kikkers.<br>
-                Zo is de Amerikaanse pad een populaire pad om te houden als huisdier.</p>
-            <a href="#" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk padden te koop</small></a>
-        </div>
-    </div>
 
 @endsection

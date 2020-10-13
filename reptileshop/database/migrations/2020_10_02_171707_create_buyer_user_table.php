@@ -17,7 +17,7 @@ class CreateBuyerUserTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('users_id')->unique();
-            $table->boolean('verified_buyer');
+            $table->boolean('verified');
             $table->string('username')->unique();
         });
     }

@@ -17,10 +17,10 @@ class CreateSellerUserTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('users_id')->unique();
-            $table->boolean('verified_seller');
+            $table->boolean('verified');
             $table->string('username');
             $table->text('specialties');
-            $table->string('seller_website');
+            $table->string('website');
         });
     }
 

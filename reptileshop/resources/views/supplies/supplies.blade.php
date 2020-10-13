@@ -1,76 +1,48 @@
 @extends ('layouts.layout')
 
 @section('content')
-        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                <div class="grid grid-cols-1 md:grid-cols-2">
-                    <div class="p-6">
-                        <div class="flex items-center">
-                            <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                        </div>
-
-                        <div class="ml-12">
-                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                        <div class="flex items-center">
-                            <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                        </div>
-
-                        <div class="ml-12">
-                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                        <div class="flex items-center">
-                            <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                        </div>
-
-                        <div class="ml-12">
-                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                        <div class="flex items-center">
-                            <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                        </div>
-
-                        <div class="ml-12">
-                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                <div class="text-center text-sm text-gray-500 sm:text-left">
-                    <div class="flex items-center">
-
-                        <a href="{{route('login')}}" class="ml-1 underline">
-                            Log in
-                        </a>
-
-                        <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                            Registreer
-                        </a>
-                    </div>
-                </div>
-
-                <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                    Build v{{ Illuminate\Foundation\Application::VERSION }}
-                </div>
-            </div>
+    <div class="card bg-dark text-white">
+        <img src="{{asset('images/enclosure.jpg')}}" class="card-img" alt="enclosure">
+        <div class="card-img-overlay">
+            <h5 class="card-title"><a href="#" class="text-white text-decoration-none">Verblijven</a></h5>
+            <p class="card-text">Elk dier dat hier word verkocht, heeft ook een eigen verblijf nodig.<br>
+                Zo heb je verschillende maten aan verblijven, maar ook verschillende types zoals een aquarium.<br>
+                Uiteraard word toch vaak een glazen verblijf voor reptielen aangeraden naast de plastics die je vaak bij fokkers ziet.<br>
+                Hier kan je specifieke verblijven kopen, met sloten die zelfs de grootste Houdini's onder reptielen niet uit zou kunnen vogelen.</p>
+            <a href="#" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk verblijven te koop</small></a>
         </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <img src="{{asset('images/food.jpg')}}" class="card-img" alt="food">
+        <div class="card-img-overlay">
+            <h5 class="card-title"><a href="#" class="text-white text-decoration-none">Voer</a></h5>
+            <p class="card-text">Natuurlijk hebben deze exotische dieren ook hun specifieke variatie aan voedsel nodig.<br>
+                Van fruit, naar insecten, naar diverse knaagdieren. Zo heeft elk dier zijn of haar voorkeur.<br>
+                Naast de voedselitems, verkopen wij ook voerbakken en supplementen voor vitamines of zelfs calcium.<br>
+                Dit zijn voedingsstoffen die soms ontbreken in het dieet van een exotisch huisdier of een kieskeurige eter.</p>
+            <a href="#" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk voedsel te koop</small></a>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <img src="{{asset('images/substrate.jpg')}}" class="card-img" alt="substrate">
+        <div class="card-img-overlay">
+            <h5 class="card-title"><a href="#" class="text-white text-decoration-none">Substraat</a></h5>
+            <p class="card-text">Voor het klaarmaken van het verblijf, is er ook vaak substraat nodig.<br>
+                Zo hebben wij houtsnippers, hout vezels, kokos vezels, en nog veel meer, waaronder ook bekende merken.<br>
+                Het type substraat dat nodig is, hangt erg af van welk exotisch dier erin gaat leven.<br>
+                Hier speelt niet alleen de vochtigheidsgraad van het verblijf een grote rol, maar ook het gebruik van springstaarten en/of pissebedden.</p>
+            <a href="#" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk substraat te koop</small></a>
+        </div>
+    </div>
+    <div class="card bg-dark text-white">
+        <img src="{{asset('images/accessories.jpg')}}" class="card-img" alt="accessories">
+        <div class="card-img-overlay">
+            <h5 class="card-title"><a href="#" class="text-white text-decoration-none">Accessoires</a></h5>
+            <p class="card-text">Voor het decoreren van je verblijf, heb je natuurlijk ook wat decoratie nodig.<br>
+                Zo kan het dier zich beter vermaken en ziet het verblijf er ook wat gezelliger uit.<br>
+                Daarnaast kan je hier ook benodigdheden zoals waterbakken, hittematten/lampen en vochtigheids boxen aanschaffen.<br>
+                Dit geeft het dier een ideale en essentiele leefomgeving binnen het verblijf.</p>
+            <a href="#" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk accessoires te koop</small></a>
+        </div>
+    </div>
 @endsection
