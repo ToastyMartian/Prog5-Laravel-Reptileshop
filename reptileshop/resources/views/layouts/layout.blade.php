@@ -10,7 +10,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('home')}}">Home</a>
                 </li>
@@ -23,6 +23,7 @@
                         <a class="dropdown-item" href="#">Hagedissen</a>
                         <a class="dropdown-item" href="#">Schildpadden</a>
                         <a class="dropdown-item" href="#">Krokodilachtigen</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('reptiles')}}">Zie alle reptielen</a>
                     </div>
                 </li>
@@ -34,6 +35,7 @@
                         <a class="dropdown-item" href="#">Kikkers</a>
                         <a class="dropdown-item" href="#">Padden</a>
                         <a class="dropdown-item" href="#">Salamanders</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('amphibians')}}">Zie alle amfibieen</a>
                     </div>
                 </li>
@@ -46,10 +48,23 @@
                         <a class="dropdown-item" href="#">Voer</a>
                         <a class="dropdown-item" href="#">Substraat</a>
                         <a class="dropdown-item" href="#">Accessoires</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('supplies')}}">Zie alle benodigdheden</a>
                     </div>
                 </li>
             </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('login')}}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('register')}}">Register</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
     <title>ExoticShop</title>
