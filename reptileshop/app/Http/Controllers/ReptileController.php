@@ -10,4 +10,5 @@ class ReptileController extends HomeController
     public function show() {
         return view('reptiles.reptiles');
     }
+
 }

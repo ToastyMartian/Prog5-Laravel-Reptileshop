@@ -20,9 +20,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{route('reptiles.snakes')}}">Slangen</a>
-                        <a class="dropdown-item" href="#">Hagedissen</a>
-                        <a class="dropdown-item" href="#">Schildpadden</a>
-                        <a class="dropdown-item" href="#">Krokodilachtigen</a>
+                        <a class="dropdown-item" href="{{route('reptiles.lizards')}}">Hagedissen</a>
+                        <a class="dropdown-item" href="{{route('reptiles.turtles')}}">Schildpadden</a>
+                        <a class="dropdown-item" href="{{route('reptiles.crocodiles')}}">Krokodilachtigen</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('reptiles')}}">Zie alle reptielen</a>
                     </div>
@@ -32,9 +32,9 @@
                         Amfibieen
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Kikkers</a>
-                        <a class="dropdown-item" href="#">Padden</a>
-                        <a class="dropdown-item" href="#">Salamanders</a>
+                        <a class="dropdown-item" href="{{route('amphibians.frogs')}}">Kikkers</a>
+                        <a class="dropdown-item" href="{{route('amphibians.toads')}}">Padden</a>
+                        <a class="dropdown-item" href="{{route('amphibians.salamanders')}}">Salamanders</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('amphibians')}}">Zie alle amfibieen</a>
                     </div>
@@ -44,10 +44,10 @@
                         Benodigdheden
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Verblijven</a>
-                        <a class="dropdown-item" href="#">Voer</a>
-                        <a class="dropdown-item" href="#">Substraat</a>
-                        <a class="dropdown-item" href="#">Accessoires</a>
+                        <a class="dropdown-item" href="{{route('supplies.enclosures')}}">Verblijven</a>
+                        <a class="dropdown-item" href="{{route('supplies.foods')}}">Voer</a>
+                        <a class="dropdown-item" href="{{route('supplies.substrates')}}">Substraat</a>
+                        <a class="dropdown-item" href="{{route('supplies.accessories')}}">Accessoires</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('supplies')}}">Zie alle benodigdheden</a>
                     </div>
