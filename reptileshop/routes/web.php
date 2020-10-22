@@ -13,29 +13,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Homepage
 Route::get('/', 'HomeController@show')->name('home');
 
+//Reptile routes
 Route::get('/reptiles', 'ReptileController@show')->name('reptiles');
-Route::get('/reptiles/snakes', 'SnakeController@show')->name('reptiles.snakes');
-Route::get('/reptiles/crocodiles', 'CrocodileController@show')->name('reptiles.crocodiles');
-Route::get('/reptiles/lizards', 'LizardController@show')->name('reptiles.lizards');
-Route::get('/reptiles/turtles', 'TurtleController@show')->name('reptiles.turtles');
+Route::get('/reptiles/snakes', 'ReptileController@snake')->name('reptiles.snakes');
+Route::get('/reptiles/crocodiles', 'ReptileController@crocodile')->name('reptiles.crocodiles');
+Route::get('/reptiles/lizards', 'ReptileController@lizard')->name('reptiles.lizards');
+Route::get('/reptiles/turtles', 'ReptileController@turtle')->name('reptiles.turtles');
 
+//Amphibian routes
 Route::get('/amphibians', 'AmphibianController@show')->name('amphibians');
-Route::get('/amphibians/frogs', 'FrogController@show')->name('amphibians.frogs');
-Route::get('/amphibians/toads', 'ToadController@show')->name('amphibians.toads');
-Route::get('/amphibians/salamanders', 'SalamanderController@show')->name('amphibians.salamanders');
+Route::get('/amphibians/frogs', 'AmphibianController@frog')->name('amphibians.frogs');
+Route::get('/amphibians/toads', 'AmphibianController@toad')->name('amphibians.toads');
+Route::get('/amphibians/salamanders', 'AmphibianController@salamander')->name('amphibians.salamanders');
 
+//Supply routes
 Route::get('/supplies', 'SuppliesController@show')->name('supplies');
-Route::get('/supplies/accessories', 'AccessoryController@show')->name('supplies.accessories');
-Route::get('/supplies/enclosures', 'EnclosureController@show')->name('supplies.enclosures');
-Route::get('/supplies/foods', 'FoodController@show')->name('supplies.foods');
-Route::get('/supplies/substrates', 'SubstrateController@show')->name('supplies.substrates');
+Route::get('/supplies/accessories', 'SuppliesController@accessory')->name('supplies.accessories');
+Route::get('/supplies/enclosures', 'SuppliesController@enclosure')->name('supplies.enclosures');
+Route::get('/supplies/foods', 'SuppliesController@food')->name('supplies.foods');
+Route::get('/supplies/substrates', 'SuppliesController@substrate')->name('supplies.substrates');
 
+//Post routes + about
 Route::get('/about', 'AboutController@show')->name('about');
 Route::get('/new', 'NewController@show')->name('new');
 //Route::get('/login', 'LoginController@show')->name('login');
 
+//Middleware auth routes
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

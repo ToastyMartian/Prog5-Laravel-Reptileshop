@@ -11,4 +11,20 @@ class ReptileController extends HomeController
         return view('reptiles.reptiles');
     }
 
+    public function snake() {
+        return view('reptiles.snakes');
+    }
+
+    public function lizard() {
+        return view('reptiles.lizards');
+    }
+
+    public function turtle() {
+        return view('reptiles.turtles');
+    }
+
+    public function crocodile() {
+        return view('reptiles.crocodiles');
+    }
+
 }
