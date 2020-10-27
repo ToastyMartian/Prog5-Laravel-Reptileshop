@@ -45,3 +45,6 @@ Route::get('/new', 'NewController@show')->name('new');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+//Resource routes
+Route::resource('product', 'ItemController');
