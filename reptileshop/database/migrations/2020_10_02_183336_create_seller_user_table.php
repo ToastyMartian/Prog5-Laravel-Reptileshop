@@ -19,7 +19,6 @@ class CreateSellerUserTable extends Migration
             $table->foreignId('users_id')->unique();
             $table->boolean('verified');
             $table->string('username');
-            $table->text('specialties');
             $table->string('website');
         });
     }
