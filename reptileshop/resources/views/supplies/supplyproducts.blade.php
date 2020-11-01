@@ -58,14 +58,19 @@
         </div>
     </div>
 
-    @forelse ($products as $product)
-        <div class="card p-3">
-            <h3><a href="product/{{$product->id}}">{{$product->name}}</a></h3>
-            <a href="#" class="btn btn-primary">Zie details</a>
-        </div>
-    @empty
-        <p>Er zijn geen (zoek)resultaten gevonden, probeer iets anders te zoeken.</p>
-    @endforelse
+    <div class="card-group">
+        @forelse ($products as $product)
+            <div class="card">
+                <img src="{{$product->image}}" class="card-img-top" alt="product image">
+                <div class="card-body">
+                    <h5 class="card-title">{{$product->name}}</h5>
+                    <a href="{{route('products.show', $product->id)}}" class="btn btn-primary">Zie details</a>
+                </div>
+            </div>
+        @empty
+            <p>Er zijn geen (zoek)resultaten gevonden, probeer iets anders te zoeken.</p>
+        @endforelse
+    </div>
 
     <a href="{{route('home')}}">Back to home</a>
 

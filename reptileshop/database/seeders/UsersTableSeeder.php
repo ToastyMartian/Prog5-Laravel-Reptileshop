@@ -23,10 +23,22 @@ class UsersTableSeeder extends Seeder
 
         $admin = User::create([
             'name' => 'Admin',
-            'email' => 'cakallemein@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('adminadmin'),
+        ]);
+        $buyer = User::create([
+            'name' => 'Buyer',
+            'email' => 'buyer@gmail.com',
+            'password' => bcrypt('buyerbuyer'),
+        ]);
+        $seller = User::create([
+            'name' => 'Seller',
+            'email' => 'seller@gmail.com',
+            'password' => bcrypt('sellerseller'),
         ]);
 
         $admin->roles()->attach($adminRole);
+        $buyer->roles()->attach($buyerRole);
+        $seller->roles()->attach($sellerRole);
     }
 }

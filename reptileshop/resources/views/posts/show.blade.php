@@ -1,4 +1,4 @@
-@extends('lauouts.layout')
+@extends('layouts.layout')
 
 @section('content')
     <a href="{{route('amphibians')}}" class="btn btn-default">Go back</a>

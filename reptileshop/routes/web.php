@@ -39,19 +39,21 @@ Route::get('/supplies/enclosures', 'SuppliesController@enclosure')->name('suppli
 Route::get('/supplies/foods', 'SuppliesController@food')->name('supplies.foods');
 Route::get('/supplies/substrates', 'SuppliesController@substrate')->name('supplies.substrates');
 
-//About
+//Extra
 Route::get('/about', 'AboutController@show')->name('about');
-
-//Route::get('/login', 'LoginController@show')->name('login');
+Route::get('/search', 'ProductsController@search');
 
 //Middleware auth routes
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::get('/admin', 'AdminController@show')->middleware(['auth', 'auth.admin']);
 
 //CRUD routes
 //Route::resource('products', 'ProductsController@allProducts');
-Route::get('/product', 'ProductsController@show')->name('products.show');
-Route::get('/new', 'NewController@show')->name('new');
-
+Route::get('/product/{{$product->id}}', 'ProductsController@productDetails')->name('products.show')->middleware(['auth', 'auth.buyer']);
+Route::get('/new', 'NewController@show')->name('new')->middleware(['auth', 'auth.seller']);
+Route::get('/new', 'NewController@allPosts');
+Route::get('/newpost', 'ProductsController@newPost');
+Route::post('/newpost', 'ProductsController@store');
 

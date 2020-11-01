@@ -23,5 +23,24 @@ class ProductsController extends HomeController
         return view('supplies.supplyproducts', ['products'=>$products]);
     }
 
+    public function newPost(Request $request)
+    {
+        $products = Product::all();
+        return view('posts.newpost');
+    }
+
+    public function productDetails($id)
+    {
+        $products = Product::find($id);
+        return view('products.show')->with('products', $products);
+    }
+
+    public function search()
+    {
+        $search = $_GET['query'];
+        $products = Product::where('name','LIKE','%'.$search.'%')->get();
+
+        return view('posts.search', compact('products'));
+    }
 
 }
