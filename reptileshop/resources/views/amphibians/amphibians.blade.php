@@ -44,7 +44,7 @@
         <div class="card-body">
             <h5 class="card-title">Alle amfibieen</h5>
             <p class="card-text">Filter hier eventueel op meerdere categorieen</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="{{route('amphibians.products')}}" class="btn btn-primary">Zie alle amfibieen</a>
         </div>
     </div>
 
