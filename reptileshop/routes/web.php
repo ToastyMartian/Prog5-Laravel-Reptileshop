@@ -54,6 +54,6 @@ Route::get('/admin', 'AdminController@show')->middleware(['auth', 'auth.admin'])
 Route::get('/product/{{$product->id}}', 'ProductsController@productDetails')->name('products.show')->middleware(['auth', 'auth.buyer']);
 Route::get('/new', 'NewController@show')->name('new')->middleware(['auth', 'auth.seller']);
 Route::get('/new', 'NewController@allPosts');
-Route::get('/newpost', 'ProductsController@newPost');
+Route::get('/newpost', 'ProductsController@newPost')->name('newpost');
 Route::post('/newpost', 'ProductsController@store');
 

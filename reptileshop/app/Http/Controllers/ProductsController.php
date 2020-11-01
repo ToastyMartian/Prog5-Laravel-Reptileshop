@@ -23,10 +23,17 @@ class ProductsController extends HomeController
         return view('supplies.supplyproducts', ['products'=>$products]);
     }
 
-    public function newPost(Request $request)
+    public function newPost()
     {
         $products = Product::all();
         return view('posts.newpost');
+    }
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+        Product::create($input);
+        return redirect('/new');
     }
 
     public function productDetails($id)
