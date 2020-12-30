@@ -8,6 +8,7 @@
     <title>ExoticShop</title>
 </head>
 <body class="antialiased">
+    @include('inc.errors')
     @yield ('content')
 </body>
 </html>
