@@ -21,6 +21,6 @@ class AccessBuyer
         {
             return $next($request);
         }
-        return redirect('login');
+        return redirect('/')->with('error');
     }
 }

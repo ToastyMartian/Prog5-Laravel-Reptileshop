@@ -1,51 +1,55 @@
 @extends ('layouts.layout')
 
 @section('content')
-    <div class="card-group">
-        <div class="card bg-dark text-white">
-          <img src="{{asset('images/frog.jpg')}}" class="card-img" alt="frog">
-         <div class="card-img-overlay">
-                <h5 class="card-title"><a href="{{route('amphibians.frogs')}}" class="text-white text-decoration-none">Kikkers</a></h5>
-               <p class="card-text">Bij kikker denk je al vaak aan de typische groene amfibie met kraaloogjes en soms rode wangetjes.<br>
-               Uiteraard zijn er veel meer verschillende soorten kikkers dan onze groene vriend.<br>
-               Een populaire kikker als huisdier is bijvoorbeeld de koraalteenboomkikker.<br>
-               Deze staan bekend om de mooie, zachtgroene of zelfs blauwe kleur en de gladde huid.</p>
-               <a href="{{route('amphibians.frogs')}}" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk kikkers te koop</small></a>
-         </div>
-     </div>
-     <div class="card bg-dark text-white">
-         <img src="{{asset('images/toad.jpg')}}" class="card-img" alt="toad">
-         <div class="card-img-overlay">
-              <h5 class="card-title"><a href="{{route('amphibians.toads')}}" class="text-white text-decoration-none">Padden</a></h5>
-                    <p class="card-text">Padden worden vaak verward met kikkers.<br>
-                    Echter zijn deze vrij anders dan kikkers, en vaak ook minder populair als huisdier.<br>
-                    Padden zijn vaak een stuk groter en hebben een bruinachtige kleur in plaats van de felle kleuren bij kikkers.<br>
-                    Zo is de Amerikaanse pad een populaire pad om te houden als huisdier.</p>
-               <a href="{{route('amphibians.toads')}}" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk padden te koop</small></a>
-         </div>
-     </div>
-     <div class="card bg-dark text-white">
-           <img src="{{asset('images/salamander.jpg')}}" class="card-img" alt="salamander">
-          <div class="card-img-overlay">
-             <h5 class="card-title"><a href="{{route('amphibians.salamanders')}}" class="text-white text-decoration-none">Salamanders</a></h5>
-                <p class="card-text">Salamanders lijken erg op hun reptielen broer: de hagedis.<br>
-                Wat deze salamanders uniek maken, is hun affiniteit met het leven onder water.<br>
-                Salamanders zijn daarom ook te onderscheiden van hagedissen door een gladdere huid.<br>
-                Een recente populaire salamander is bijvoorbeeld de axolotl, die met hun schattige gezicht veel tractie kreeg.</p>
-               <a href="{{route('amphibians.salamanders')}}" class="btn btn-primary btn-dark"><small class="text-muted">Bekijk salamanders te koop</small></a>
-            </div>
-        </div>
-    </div>
 
     <div class="card">
         <div class="card-header">
             Te koop
         </div>
         <div class="card-body">
-            <h5 class="card-title">Alle amfibieen</h5>
-            <p class="card-text">Filter hier eventueel op meerdere categorieen</p>
-            <a href="{{route('amphibians.products')}}" class="btn btn-primary">Zie alle amfibieen</a>
+            <h5 class="card-title">Alle producten</h5>
+
+            <form method="get" action="{{url('/')}}">
+                {{@csrf_field()}}
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="categories">Filter hier eventueel op verschillende categorieen:</label>
+                        <select class="form-control">
+                            <option>Kies een categorie</option>
+                            @foreach($posts as $post)
+                                <option name="id" type="filter">{{$post->category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Zoek</button>
+            </form><br>
+
+            <p>of</p>
+
+            <form type="get" action="{{url('/search')}}">
+                {{@csrf_field()}}
+                <label for="search">Zoek naar producten:</label>
+                <input class="form-control" name="query" type="search" placeholder="Zoek naar producten" aria-label="Search">
+                <button class="btn btn-primary" type="submit">Zoek</button>
+            </form>
         </div>
+    </div>
+
+    <div class="card-group">
+        @forelse ($posts as $post)
+            <div class="card">
+                {{--                    <img src="{{$post->image}}" class="card-img-top" alt="product image">--}}
+                <div class="card-body">
+                    <h5 class="card-title">{{$post->name}}</h5>
+                    <hr>
+                    <p>{{$post->category->name}}</p>
+                    <a href="{{route('posts.show', $post->id)}}" class="btn btn-success">Zie details</a>
+                </div>
+            </div>
+        @empty
+            <p>Er zijn geen (zoek)resultaten gevonden, probeer iets anders te zoeken.</p>
+        @endforelse
     </div>
 
 

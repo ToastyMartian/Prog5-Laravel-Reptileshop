@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Auth;
@@ -15,13 +16,17 @@ class AccessAdmin
      * @param  \Closure  $next
      * @return mixed
      */
+
     public function handle(Request $request, Closure $next)
     {
+
         if(Auth::user()->hasAnyRole('admin'))
         {
             return $next($request);
         }
-        return redirect('dashboard');
+        return redirect('/')->with('error');
 
     }
+
+
 }

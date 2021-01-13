@@ -8,43 +8,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('home')}}">Home</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link" href="#{{--{{route('reptiles', $category->id)}}--}}">
                     Reptielen
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{route('reptiles.snakes')}}">Slangen</a>
-                    <a class="dropdown-item" href="{{route('reptiles.lizards')}}">Hagedissen</a>
-                    <a class="dropdown-item" href="{{route('reptiles.turtles')}}">Schildpadden</a>
-                    <a class="dropdown-item" href="{{route('reptiles.crocodiles')}}">Krokodilachtigen</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{route('reptiles')}}">Zie alle reptielen</a>
-                </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('amphibians')}}">
                     Amfibieen
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{route('amphibians.frogs')}}">Kikkers</a>
-                    <a class="dropdown-item" href="{{route('amphibians.toads')}}">Padden</a>
-                    <a class="dropdown-item" href="{{route('amphibians.salamanders')}}">Salamanders</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{route('amphibians')}}">Zie alle amfibieen</a>
-                </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('supplies')}}">
                     Benodigdheden
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{route('supplies.enclosures')}}">Verblijven</a>
-                    <a class="dropdown-item" href="{{route('supplies.foods')}}">Voer</a>
-                    <a class="dropdown-item" href="{{route('supplies.substrates')}}">Substraat</a>
-                    <a class="dropdown-item" href="{{route('supplies.accessories')}}">Accessoires</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{route('supplies')}}">Zie alle benodigdheden</a>
-                </div>
             </li>
         </ul>
         <ul class="navbar-nav">
@@ -57,7 +34,21 @@
         </ul>
         <form class="form-inline my-2 my-lg-0" type="get" action="{{url('/search')}}">
             <input class="form-control mr-sm-2" name="query" type="search" placeholder="Zoek naar producten" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoek</button>
         </form>
+
+        @if(Auth::check('admin'))
+        <a href="{{route('admin')}}">
+            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-shield-lock ml-3" fill="lightgray" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"/>
+                <path d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z"/>
+            </svg>
+        </a>
+        @else
+            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-shield-lock-fill ml-3" fill="lightgray" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm.5 7.415a1.5 1.5 0 1 0-1 0l-.385 1.99a.5.5 0 0 0 .491.595h.788a.5.5 0 0 0 .49-.595L8.5 7.915z"/>
+            </svg>
+        @endif
     </div>
 </nav>
+@include('inc.errors')

@@ -14,46 +14,52 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Homepage
-Route::get('/', 'HomeController@show')->name('home');
+Route::get('/', 'HomeController@allPosts')->name('home');
+Route::get('/category/{category}', 'HomeController@filter')->name('category');
+
+//Favourite & unfavourite
+Route::post('/{favourite}', 'FavouriteController@add_favourite')->name('favourite')->middleware(['auth']);
+Route::delete('/{favourite}', 'FavouriteController@delete_favourite')->name('favourite.destroy')->middleware(['auth']);
 
 //Reptile routes
-Route::get('/reptiles', 'ReptileController@show')->name('reptiles');
-Route::get('/reptiles/all', 'ProductsController@allReptileProducts')->name('reptiles.products');
-Route::get('/reptiles/snakes', 'ReptileController@snake')->name('reptiles.snakes');
-Route::get('/reptiles/crocodiles', 'ReptileController@crocodile')->name('reptiles.crocodiles');
-Route::get('/reptiles/lizards', 'ReptileController@lizard')->name('reptiles.lizards');
-Route::get('/reptiles/turtles', 'ReptileController@turtle')->name('reptiles.turtles');
+Route::get('/category/1', 'ReptileController@show')->name('reptiles');
 
-//Amphibian routes
-Route::get('/amphibians', 'AmphibianController@show')->name('amphibians');
-Route::get('/amphibians/all', 'ProductsController@allAmphibianProducts')->name('amphibians.products');
-Route::get('/amphibians/frogs', 'AmphibianController@frog')->name('amphibians.frogs');
-Route::get('/amphibians/toads', 'AmphibianController@toad')->name('amphibians.toads');
-Route::get('/amphibians/salamanders', 'AmphibianController@salamander')->name('amphibians.salamanders');
-
-//Supply routes
+Route::get('/amphibians', 'AmphibianController@amphibians')->name('amphibians');
 Route::get('/supplies', 'SuppliesController@show')->name('supplies');
-Route::get('/supplies/all', 'ProductsController@allSupplyProducts')->name('supplies.products');
-Route::get('/supplies/accessories', 'SuppliesController@accessory')->name('supplies.accessories');
-Route::get('/supplies/enclosures', 'SuppliesController@enclosure')->name('supplies.enclosures');
-Route::get('/supplies/foods', 'SuppliesController@food')->name('supplies.foods');
-Route::get('/supplies/substrates', 'SuppliesController@substrate')->name('supplies.substrates');
 
 //Extra
-Route::get('/about', 'AboutController@show')->name('about');
-Route::get('/search', 'ProductsController@search');
+Route::get('/search', 'HomeController@search')->name('search');
 
 //Middleware auth routes
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function ()
+{
     return view('dashboard');
 })->name('dashboard');
-Route::get('/admin', 'AdminController@show')->middleware(['auth', 'auth.admin']);
+Route::get('/favourites', 'FavouriteController@favourites')->name('profile.favourites')->middleware(['auth']);
 
-//CRUD routes
-//Route::resource('products', 'ProductsController@allProducts');
-Route::get('/product/{{$product->id}}', 'ProductsController@productDetails')->name('products.show')->middleware(['auth', 'auth.buyer']);
-Route::get('/new', 'NewController@show')->name('new')->middleware(['auth', 'auth.seller']);
-Route::get('/new', 'NewController@allPosts');
-Route::get('/newpost', 'ProductsController@newPost')->name('newpost');
-Route::post('/newpost', 'ProductsController@store');
+//Admin Routes
+Route::get('/admin', 'AdminController@show')->name('admin')->middleware(['auth', 'auth.admin']);
+Route::post('/posts/{post}', 'AdminController@deactivate')->name('posts.deactivate')->middleware(['auth', 'auth.admin']);
+
+//Index Route (admin only)
+Route::get('/posts', 'PostsController@index')->name('posts.index')->middleware(['auth', 'auth.admin']);
+
+//Create Routes
+Route::get('/posts/create', 'PostsController@create')->name('posts.create')->middleware(['auth', 'auth.sellerAdmin']);
+Route::post('/posts', 'PostsController@store')->name('posts.store')->middleware(['auth', 'auth.sellerAdmin']);
+
+//Read Route
+Route::get('/posts/{post}', 'PostsController@show')->name('posts.show')->middleware(['auth']);
+
+//Update Routes
+Route::get('/posts/{post}/edit', 'PostsController@edit')->name('posts.edit')->middleware(['auth', 'auth.sellerAdmin']);
+Route::patch('/posts/{post}', 'PostsController@update')->name('posts.update')->middleware(['auth', 'auth.sellerAdmin']);
+
+//Delete Route
+Route::delete('/posts/{post}', 'PostsController@destroy')->name('posts.destroy')->middleware(['auth', 'auth.sellerAdmin']);
+
+
+
+
+
 

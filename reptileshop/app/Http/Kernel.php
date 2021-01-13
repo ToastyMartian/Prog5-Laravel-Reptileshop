@@ -43,6 +43,10 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'sellerAdmin' => [
+            \App\Http\Middleware\AccessAdmin::class,
+            \App\Http\Middleware\AccessSeller::class,
+        ],
     ];
 
     /**
@@ -65,5 +69,6 @@ class Kernel extends HttpKernel
         'auth.admin' => \App\Http\Middleware\AccessAdmin::class,
         'auth.seller' => \App\Http\Middleware\AccessSeller::class,
         'auth.buyer' => \App\Http\Middleware\AccessBuyer::class,
+        'auth.sellerAdmin' => \App\Http\Middleware\AccessSellerAdmin::class, //seller and admin role in one middleware authentication
     ];
 }

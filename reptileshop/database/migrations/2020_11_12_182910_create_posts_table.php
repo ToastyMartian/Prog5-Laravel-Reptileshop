@@ -3,8 +3,10 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Post;
+use App\Models\Category;
 
-class CreateBuyerUserTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +15,14 @@ class CreateBuyerUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('buyer_user', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->integer('category_id')->unsigned();
+            $table->string('name');
+            $table->string('description');
+//            $table->mediumText('image')->nullable();
+            $table->integer('price');
             $table->timestamps();
-            $table->foreignId('users_id')->unique();
-            $table->boolean('verified');
-            $table->string('username')->unique();
         });
     }
 
@@ -29,6 +33,7 @@ class CreateBuyerUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buyer_user');
+        Schema::dropIfExists('posts');
     }
 }
+

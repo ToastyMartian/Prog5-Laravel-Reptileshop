@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSellerUserTable extends Migration
+class CreateFavouritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateSellerUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('seller_user', function (Blueprint $table) {
+        Schema::create('favourites', function (Blueprint $table) {
             $table->id();
+            $table->integer('post_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
-            $table->foreignId('users_id')->unique();
-            $table->boolean('verified');
-            $table->string('username');
-            $table->string('website');
         });
     }
 
@@ -30,6 +28,6 @@ class CreateSellerUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seller_user');
+        Schema::dropIfExists('favourites');
     }
 }

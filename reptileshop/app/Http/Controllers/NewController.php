@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class NewController extends HomeController
@@ -13,7 +13,7 @@ class NewController extends HomeController
 
     public function allPosts()
     {
-        $products = Product::all();
+        $products = Post::all();
         return view('posts.new', ['products'=>$products]);
     }
 }

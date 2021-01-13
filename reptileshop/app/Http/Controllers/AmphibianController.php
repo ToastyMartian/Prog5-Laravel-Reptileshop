@@ -2,23 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class AmphibianController extends HomeController
 {
-    public function show() {
+    public function view() {
         return view('amphibians.amphibians');
     }
 
-    public function frog() {
-        return view('amphibians.frogs');
-    }
+    public function amphibians(){
+        if(request()->category) {
+            $posts = Post::with('categories')->whereHas('categories')->get();
+            $categories = Category::find('Amfibieen');
+        }else{
+            $posts = Post::all();
+            $categories = Category::all();
+        }
 
-    public function toad() {
-        return view('amphibians.toads');
-    }
 
-    public function salamander() {
-        return view('amphibians.salamanders');
+        return view('home')->with
+        ([
+            'posts'=>$posts,
+            'categories'=>$categories
+        ]);
     }
 }
